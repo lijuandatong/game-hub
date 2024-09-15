@@ -26,7 +26,7 @@ const useGames = () => {
 
     }, [])
 
-    return {games, errors}
+    return {games, errors, isLoading}
 
 }
 
