@@ -6,10 +6,17 @@ export interface FetchGamesResponse {
   results: Game[]
 }
 
+export interface Platfrom {
+  id: number
+  name: string
+  slug: string
+}
+
 export interface Game {
     id: number
     name: string
     background_image: string
+    parent_platforms: {platform: Platfrom} [] // design smell 不好的设计
   }
 
 export default create('/games')
