@@ -17,6 +17,7 @@ export interface Game {
     name: string
     background_image: string
     parent_platforms: {platform: Platfrom} [] // design smell 不好的设计
+    metacritic: number
   }
 
 export default create('/games')
