@@ -1,3 +1,5 @@
+import noImage from '../assets/no-image-place-holder.png'
+
 const getCroppedImageUrl = (url: string) => {
     if(!url) return ''
 
