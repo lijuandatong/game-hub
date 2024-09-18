@@ -6,7 +6,7 @@ export interface FetchGamesResponse {
   results: Game[]
 }
 
-export interface Platfrom {
+export interface Platform {
   id: number
   name: string
   slug: string
@@ -16,7 +16,7 @@ export interface Game {
     id: number
     name: string
     background_image: string
-    parent_platforms: {platform: Platfrom} [] // design smell 不好的设计
+    parent_platforms: {platform: Platform} [] // design smell 不好的设计
     metacritic: number
   }
 

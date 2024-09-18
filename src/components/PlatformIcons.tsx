@@ -4,10 +4,10 @@ import { SiNintendo } from 'react-icons/si'
 import { BsGlobe } from 'react-icons/bs'
 import { IconType } from 'react-icons'
 import { HStack, Icon } from '@chakra-ui/react'
-import { Platfrom } from '../services/GameService'
+import { Platform } from '../services/GameService'
 
 interface Props {
-    platforms: Platfrom[]
+    platforms: Platform[]
 }
 
 const PlatformIcons = ({ platforms }: Props) => {
