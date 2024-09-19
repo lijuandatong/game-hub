@@ -1,6 +1,7 @@
 import { Platform } from "../services/GameService"
-import useData from "./useData"
+import platforms from "../data/platforms"
 
-const usePlatforms = () => useData<Platform>('/platforms/lists/parents')
+//const usePlatforms = () => useData<Platform>('/platforms/lists/parents')
+const usePlatforms = () => ({data: platforms, isLoading: false, errors: null})
 
 export default usePlatforms

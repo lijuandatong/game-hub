@@ -18,6 +18,7 @@ export interface Game {
     background_image: string
     parent_platforms: {platform: Platform} [] // design smell 不好的设计
     metacritic: number
+    rating_top: number
   }
 
 export default create('/games')
