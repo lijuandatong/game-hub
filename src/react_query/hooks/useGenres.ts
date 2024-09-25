@@ -2,8 +2,7 @@
 import { CACHE_KEY_GENRES } from "../constants"
 import GenreService, { FetchGenresResponse, Genre } from "../services/GenreService"
 import { useQuery } from "@tanstack/react-query"
-import { FetchResponse } from "./useData"
-import apiClient from "../services/api-client"
+import apiClient, { FetchResponse } from "../services/api-client"
 import genres from "../../data/genres"
 
 
