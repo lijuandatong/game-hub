@@ -1,5 +1,6 @@
 import { Genre } from "../services/genreService"
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query"
+import ms from 'ms'
 import apiClient, { FetchResponse } from "../services/api-client"
 import { GameQuery } from "../../App"
 import gameService, { Game } from "../services/gameService"
@@ -18,7 +19,7 @@ const useGames = (gameQuery: GameQuery) => {
                 page_size: 10
             } 
         }),
-        staleTime: 10 * 60 * 1000,
+        staleTime: ms('2h'),
         getNextPageParam: (lastPage, allPages) => lastPage.next ? allPages.length + 1 : undefined
     })
 }
