@@ -1,22 +1,22 @@
-import { Game, Platform } from "../services/GameService"
-import { Genre } from "../services/GenreService"
+import { Genre } from "../services/genreService"
 import { useQuery } from "@tanstack/react-query"
 import apiClient, { FetchResponse } from "../services/api-client"
 import { GameQuery } from "../../App"
+import gameService, { Game } from "../services/gameService"
 
 const useGames = (gameQuery: GameQuery) => {
     return useQuery<FetchResponse<Game>, Error>({
         queryKey: ['games', gameQuery],
-        queryFn: () => apiClient.get<FetchResponse<Game>>('/games', { 
+        queryFn: () => 
+        gameService.getAll({ 
             params: {
                 genres: gameQuery.genre?.id, 
                 parent_platforms: gameQuery.platform?.id,
                 ordering: gameQuery.sortOrder,
                 search: gameQuery.searchText
             } 
-        }).then(res => res.data),
+        }),
         staleTime: 10 * 60 * 1000
-        // queryFn: GenreService.getAll
     })
 }
 

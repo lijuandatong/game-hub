@@ -1,16 +1,5 @@
-import apiClient from "./api-client"
-import create from "./HttpService"
-
-export interface FetchGamesResponse {
-  count: number
-  results: Game[]
-}
-
-export interface Platform {
-  id: number
-  name: string
-  slug: string
-}
+import httpService from "./httpService"
+import { Platform } from "./platformService"
 
 export interface Game {
     id: number
@@ -21,4 +10,4 @@ export interface Game {
     rating_top: number
   }
 
-export default create('/games')
+  export default new httpService<Game>('/games')

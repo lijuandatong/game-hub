@@ -1,19 +1,21 @@
 import { AxiosRequestConfig } from "axios"
-import apiClient from "./api-client"
+import apiClient, { FetchResponse } from "./api-client"
+import { Genre } from "./genreService"
+import { Platform } from "./platformService"
 
 interface Entity{
     id: number
 }
 
-class HttpService<T>{
+class httpService<T>{
     endpoint: string
 
     constructor(endpoint: string){
         this.endpoint = endpoint
     }
 
-    getAll = () => {
-        return apiClient.get<T>(this.endpoint).then(res => res.data)
+    getAll = (config: AxiosRequestConfig) => {
+        return apiClient.get<FetchResponse<T>>(this.endpoint, config).then(res => res.data)
     }
 
     // delete(id: number){
@@ -30,6 +32,4 @@ class HttpService<T>{
 
 }
 
-const create = (endpoint: string) => new HttpService(endpoint)
-
-export default create
+export default httpService

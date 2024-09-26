@@ -11,6 +11,3 @@ export default axios.create({
         key: '10173e10932c4ff99e784c193b3b208c'
     }
 })
-
-
-export { CanceledError }
