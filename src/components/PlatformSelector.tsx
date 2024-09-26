@@ -5,11 +5,12 @@ import { Platform } from '../services/GameService'
 
 interface Props {
     onSelectedPlatform: (platform: Platform) => void
-    selectedPlatform: Platform | null
+    selectedPlatformId?: number
 }
 
-const PlatformSelector = ({ onSelectedPlatform, selectedPlatform }: Props) => {
+const PlatformSelector = ({ onSelectedPlatform, selectedPlatformId }: Props) => {
     const {data, error} = usePlatforms()
+    const selectedPlatform = data?.results.find(platform => platform.id === selectedPlatformId)
 
     if(error) return null
 
@@ -17,7 +18,7 @@ const PlatformSelector = ({ onSelectedPlatform, selectedPlatform }: Props) => {
         <Menu>
             <MenuButton as={Button} rightIcon={<BsChevronDown />}>{selectedPlatform?.name || 'Platfroms'}</MenuButton>
             <MenuList>
-                {data.results.map(platform => <MenuItem key={platform.id} onClick={() => onSelectedPlatform(platform)}>{platform.name}</MenuItem>)}
+                {data?.results.map(platform => <MenuItem key={platform.id} onClick={() => onSelectedPlatform(platform)}>{platform.name}</MenuItem>)}
             </MenuList>
         </Menu>
     )

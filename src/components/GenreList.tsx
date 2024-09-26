@@ -6,10 +6,10 @@ import getCroppedImageUrl from '../services/ImageUrl'
 
 interface Props {
     onSelectGenre: (genre: Genre) => void
-    selectedGenre: Genre | null
+    selectedGenreId?: number
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
     const {data, isLoading, error} = useGenres()
 
     if(isLoading) return <Spinner></Spinner>
@@ -20,11 +20,11 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
         <>
             <Heading marginBottom={3} fontSize='2xl'>Genres</Heading>
             <List>
-                {data.results.map(genre => (
+                {data?.results.map(genre => (
                     <ListItem key={genre.id} paddingY='5px'>
                     <HStack>
                         <Image objectFit='cover' src={getCroppedImageUrl(genre.image_background)} boxSize='32px' borderRadius={8}/>
-                        <Button textAlign='left' whiteSpace='nomal' fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'} variant='link' fontSize='lg' onClick={() => onSelectGenre(genre)}>{genre.name}</Button>
+                        <Button textAlign='left' whiteSpace='nomal' fontWeight={genre.id === selectedGenreId ? 'bold' : 'normal'} variant='link' fontSize='lg' onClick={() => onSelectGenre(genre)}>{genre.name}</Button>
                     </HStack>
                 </ListItem>
                 ))}
