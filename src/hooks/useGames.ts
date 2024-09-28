@@ -1,6 +1,5 @@
-import { GameQuery } from "../App"
-import { Game, Platform } from "../services/GameService"
-import { Genre } from "../services/GenreService"
+import { Game } from "../services/GameService"
+import { GameQuery } from "../store"
 import useData from "./useData"
 
 const useGames = (gameQuery: GameQuery) => 
