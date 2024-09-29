@@ -1,3 +1,4 @@
+import { fadeConfig } from "@chakra-ui/react"
 import { AxiosRequestConfig } from "axios"
 import apiClient, { FetchResponse } from "./api-client"
 import { Genre } from "./genreService"
@@ -16,6 +17,10 @@ class httpService<T>{
 
     getAll = (config: AxiosRequestConfig) => {
         return apiClient.get<FetchResponse<T>>(this.endpoint, config).then(res => res.data)
+    }
+
+    get = (id: number | string) => {
+        return apiClient.get<T>(this.endpoint + '/' + id).then(res => res.data)
     }
 
     // delete(id: number){
