@@ -1,5 +1,9 @@
 import { Heading, Spinner, Text } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
+import CriticScore from '../components/CriticScore'
+import DefinitionItem from '../components/DefinitionItem'
+import ExpandableText from '../components/ExpandableText'
+import GameAttrubites from '../components/GameAttrubites'
 import useGame from '../react_query/hooks/useGame'
 
 const GameDetailPage = () => {
@@ -15,9 +19,10 @@ const GameDetailPage = () => {
             <Heading>
                 {data.name}
             </Heading>
-            <Text>
+            <ExpandableText>
                 {data.description_raw}
-            </Text>
+            </ExpandableText>
+            <GameAttrubites data={data}/>
         </>
     )
 }

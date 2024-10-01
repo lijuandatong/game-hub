@@ -1,8 +1,9 @@
-import { Genre } from "../services/genreService"
+import { Genre } from "../../entities/Genre"
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query"
 import ms from 'ms'
 import apiClient, { FetchResponse } from "../services/api-client"
-import gameService, { Game } from "../services/gameService"
+import gameService from "../services/gameService"
+import { Game } from "../../entities/Game"
 import useGameQueryStore from "../../store"
 
 const useGames = () => {

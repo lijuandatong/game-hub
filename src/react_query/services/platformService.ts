@@ -1,9 +1,4 @@
 import httpService from "./httpService"
-
-export interface Platform {
-  id: number
-  name: string
-  slug: string
-}
+import { Platform } from "../../entities/Platform"
 
 export default new httpService<Platform>('/platforms/lists/parents')

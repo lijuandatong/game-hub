@@ -1,8 +1,8 @@
 import { fadeConfig } from "@chakra-ui/react"
 import { AxiosRequestConfig } from "axios"
 import apiClient, { FetchResponse } from "./api-client"
-import { Genre } from "./genreService"
-import { Platform } from "./platformService"
+import { Genre } from "../../entities/Genre"
+import { Platform } from "../../entities/Platform"
 
 interface Entity{
     id: number
