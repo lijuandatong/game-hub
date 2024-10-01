@@ -4,6 +4,7 @@ import CriticScore from '../components/CriticScore'
 import DefinitionItem from '../components/DefinitionItem'
 import ExpandableText from '../components/ExpandableText'
 import GameAttrubites from '../components/GameAttrubites'
+import GameTrailer from '../components/GameTrailer'
 import useGame from '../react_query/hooks/useGame'
 
 const GameDetailPage = () => {
@@ -23,6 +24,7 @@ const GameDetailPage = () => {
                 {data.description_raw}
             </ExpandableText>
             <GameAttrubites data={data}/>
+            <GameTrailer gameId={data.id}/>
         </>
     )
 }
