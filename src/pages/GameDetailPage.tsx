@@ -5,6 +5,7 @@ import DefinitionItem from '../components/DefinitionItem'
 import ExpandableText from '../components/ExpandableText'
 import GameAttrubites from '../components/GameAttrubites'
 import GameTrailer from '../components/GameTrailer'
+import Screenshots from '../components/Screenshots'
 import useGame from '../react_query/hooks/useGame'
 
 const GameDetailPage = () => {
@@ -25,6 +26,7 @@ const GameDetailPage = () => {
             </ExpandableText>
             <GameAttrubites data={data}/>
             <GameTrailer gameId={data.id}/>
+            <Screenshots gameId={data.id}/>
         </>
     )
 }
